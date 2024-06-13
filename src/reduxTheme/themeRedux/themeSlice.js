@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import data from '../../components/ThemeSwitcher/data/theme.json';
+import data from './data/theme.json';
 
 const initialState = {
 	allThemes: [...data],
