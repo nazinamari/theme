@@ -1,0 +1,26 @@
+:root {
+	--font-family: 'Poppins', sans-serif; /* var(--font-family) */
+	--font-size-base: 14px;
+
+	--main-text-color: #ffffff; /* var(--main-text-color) */
+	--accent-color: #bedbb0; /* var(--accent-color) */
+	--main-background-color: #161616; /* var(--main-background-color) */
+}
+
+.dark {
+	--main-text-color: #ffffff;
+	--accent-color: #bedbb0;
+	--main-background-color: #161616; /* Колір хедера */
+}
+
+.light {
+	--main-text-color: #161616;
+	--accent-color: #bedbb0;
+	--main-background-color: #b311d3; /* Колір хедера */
+}
+
+.violet {
+	--main-text-color: #ffffff;
+	--second-text-color: #161616;
+	--main-background-color: #33da44; /* Колір хедера */
+}
