@@ -1,20 +1,20 @@
 [
 	{
-		"theme": "dark-theme",
+		"theme": "dark",
 		"colors": {
 			"main-text-color": "#ffffff",
 			"accent-color": "#bedbb0"
 		}
 	},
 	{
-		"theme": "light-theme",
+		"theme": "light",
 		"colors": {
 			"main-text-color": "#161616",
 			"accent-color": "#bedbb0"
 		}
 	},
 	{
-		"theme": "violet-theme",
+		"theme": "violet",
 		"colors": {
 			"main-text-color": "#ffffff",
 			"accent-color": "#5255bc"
