@@ -10,6 +10,7 @@ import {
 import Theme from '../Theme/Theme';
 import { useEffect } from 'react';
 import { selectUser } from '../../reduxTheme/authRedux/selectors';
+import { updateTheme } from '../../reduxTheme/themeRedux/operations';
 
 export default function ThemeSwitcher() {
 	const dispatch = useDispatch();
@@ -35,6 +36,7 @@ export default function ThemeSwitcher() {
 
 	const handleThemeChange = (theme) => {
 		dispatch(setCurrentTheme(theme));
+		dispatch(updateTheme({ theme }));
 	};
 
 	return (

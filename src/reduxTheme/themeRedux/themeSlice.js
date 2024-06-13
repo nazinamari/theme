@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import data from './data/theme.json';
+import { updateTheme } from './operations';
 
 const initialState = {
 	allThemes: [...data],
@@ -19,6 +20,21 @@ export const themesSlice = createSlice({
 		setUser: (state, action) => {
 			state.user = action.payload;
 		},
+	},
+	extraReducers: (builder) => {
+		builder
+			.addCase(updateTheme.pending, (state) => {
+				state.loader = true;
+				state.error = null;
+			})
+			.addCase(updateTheme.fulfilled, (state, action) => {
+				state.loader = false;
+				state.currentTheme = action.payload;
+			})
+			.addCase(updateTheme.rejected, (state, action) => {
+				state.loader = false;
+				state.error = action.payload;
+			});
 	},
 });
 
