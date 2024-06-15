@@ -1,21 +1,29 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { getUserData } from './operations';
 
 const initialState = {
 	user: {
 		name: null,
 		email: null,
 		avatarURL: null,
-		theme: 'violet',
-		id: '1',
+		theme: null,
 	},
 	token: null,
-	isLoggedIn: false,
-	isRefreshing: false,
-	isLoading: false,
 };
 
 export const authSlice = createSlice({
-	name: 'auth',
+	name: 'user',
 	initialState,
-	reducers: {},
+	reducers: {
+		setTheme: (state, action) => {
+			state.user.theme = action.payload;
+		},
+	},
+	extraReducers: (builder) => {
+		builder.addCase(getUserData.fulfilled, (state, action) => {
+			state.user = action.payload;
+		});
+	},
 });
+
+export const { setTheme } = authSlice.actions;

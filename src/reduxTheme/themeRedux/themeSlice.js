@@ -7,7 +7,6 @@ const initialState = {
 	currentTheme: null,
 	loader: false,
 	error: null,
-	user: 'id-1',
 };
 
 export const themesSlice = createSlice({
@@ -40,5 +39,5 @@ export const themesSlice = createSlice({
 
 export const { setCurrentTheme, setUser } = themesSlice.actions;
 
-export const selectThemes = (state) => state.themes.allThemes;
+export const selectAllthemes = (state) => state.themes.allThemes;
 export const selectCurrentTheme = (state) => state.themes.currentTheme;

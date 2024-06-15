@@ -3,7 +3,7 @@ import Button from '../../shared/Button/Button';
 export default function Theme({ data }) {
 	return (
 		<div>
-			<Button>{data.theme}</Button>
+			<Button>{data}</Button>
 		</div>
 	);
 }

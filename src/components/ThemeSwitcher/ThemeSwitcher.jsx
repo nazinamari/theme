@@ -3,51 +3,53 @@ import List from '../../shared/List/List';
 import css from './ThemeSwitcher.module.css';
 import {
 	selectCurrentTheme,
-	selectThemes,
+	selectAllthemes,
 	setCurrentTheme,
-	setUser,
 } from '../../reduxTheme/themeRedux/themeSlice';
 import Theme from '../Theme/Theme';
 import { useEffect } from 'react';
-import { selectUser } from '../../reduxTheme/authRedux/selectors';
+
+import { selectTheme, selectUser } from '../../reduxTheme/authRedux/selectors';
 import { updateTheme } from '../../reduxTheme/themeRedux/operations';
+import { setTheme } from '../../reduxTheme/authRedux/authSlice';
 
 export default function ThemeSwitcher() {
 	const dispatch = useDispatch();
-	const themes = useSelector(selectThemes);
-	const currentUser = useSelector(selectUser);
+	const themesAll = useSelector(selectAllthemes);
+	const user = useSelector(selectUser);
 	const currentTheme = useSelector(selectCurrentTheme);
+	const theme = useSelector(selectTheme);
 
 	useEffect(() => {
-		if (currentUser) {
+		if (user && user.theme) {
 			const userTheme =
-				themes.find((theme) => theme.userId === currentUser.id) || themes[0];
-			dispatch(setUser(currentUser.id));
+				themesAll.find((item) => item.theme === user.theme) || themesAll[0];
 			dispatch(setCurrentTheme(userTheme));
 		}
-	}, [currentUser, themes, dispatch]);
+	}, [user, themesAll, dispatch]);
 
 	useEffect(() => {
-		if (currentTheme) {
-			document.body.classList.remove(...themes.map((theme) => theme.theme));
-			document.body.classList.add(currentTheme.theme);
+		if (theme) {
+			document.body.classList.remove(...themesAll.map((theme) => theme));
+			document.body.classList.add(theme);
 		}
-	}, [currentTheme, themes]);
+	}, [theme, themesAll]);
+
+	console.log('Current theme applied:', currentTheme); //
 
 	const handleThemeChange = (theme) => {
 		dispatch(setCurrentTheme(theme));
+		dispatch(setTheme(theme));
 		dispatch(updateTheme({ theme }));
 	};
 
 	return (
 		<List className={css.listContainer}>
-			{themes.map((item) => (
-				<li key={item.theme} onClick={() => handleThemeChange(item)}>
+			{themesAll.map((item) => (
+				<li key={item} onClick={() => handleThemeChange(item)}>
 					<Theme data={item} />
 				</li>
 			))}
 		</List>
 	);
 }
-
-// можна зробити перевірку, якщо в нас не буде теми то показувати повідомлення
