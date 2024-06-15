@@ -1,30 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getUserData, refreshUser } from './operations';
-
-const initialState = {
-	user: {
-		name: null,
-		email: null,
-		avatarURL: null,
-		theme: null,
-	},
-	token: null,
-	isRefreshing: false,
-};
+import { refreshUser, updateUserTheme } from './operations';
 
 export const authSlice = createSlice({
-	name: 'user',
-	initialState,
-	reducers: {
-		setTheme: (state, action) => {
-			state.user.theme = action.payload;
+	name: 'auth',
+	initialState: {
+		user: {
+			name: null,
+			email: null,
+			avatarURL: null,
+			theme: null,
 		},
+		token: null,
+		isLoggedIn: false,
+		isRefreshing: false,
+		isLoading: false,
 	},
-	extraReducers: (builder) => {
+	extraReducers: (builder) =>
 		builder
-			.addCase(getUserData.fulfilled, (state, action) => {
-				state.user = action.payload;
-			})
 			.addCase(refreshUser.pending, (state) => {
 				state.isRefreshing = true;
 			})
@@ -35,8 +27,17 @@ export const authSlice = createSlice({
 			})
 			.addCase(refreshUser.rejected, (state) => {
 				state.isLoading = false;
-			});
-	},
+			})
+			.addCase(updateUserTheme.pending, (state) => {
+				state.isLoading = true;
+			})
+			.addCase(updateUserTheme.fulfilled, (state, action) => {
+				state.isLoading = false;
+				state.user.theme = action.payload;
+			})
+			.addCase(updateUserTheme.rejected, (state) => {
+				state.isLoading = false;
+			}),
 });
 
-export const { setTheme } = authSlice.actions;
+export default authSlice.reducer;
