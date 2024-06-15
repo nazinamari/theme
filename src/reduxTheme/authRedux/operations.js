@@ -72,7 +72,7 @@ export const refreshUser = createAsyncThunk(
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }
-  },
+  }
   {
     condition: (_, { getState }) => {
       const reduxState = getState();
