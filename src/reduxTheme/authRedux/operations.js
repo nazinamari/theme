@@ -11,7 +11,7 @@ export const instance = axios.create({
 const setAuthHeader = (token) => {
 	instance.defaults.headers.common[
 		'Authorization'
-	] = `Bearer ${'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NmM0Nzc5ZGQ1YTA1NDJmYTIzOWUyMyIsImlhdCI6MTcxODQxMjIxMCwiZXhwIjoxNzE4NDU1NDEwfQ.9z6ZI1jh7U1kaH0JL4C8DSoVf0DQAP76IuFiu-Se6_4'}`;
+	] = `Bearer ${'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjRjYzY5Yjk2MmIxMGI3NjA3Y2VhZiIsImlhdCI6MTcxODQzOTAzNSwiZXhwIjoxNzE4NDgyMjM1fQ.nFFH2dc1D7Nitcxhlg1bwCmb0O3oXp0L4yOF3FcyKCQ'}`;
 };
 
 setAuthHeader();
