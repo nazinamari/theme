@@ -1,11 +1,1 @@
-[
-	{
-		"theme": "dark"
-	},
-	{
-		"theme": "light"
-	},
-	{
-		"theme": "violet"
-	}
-]
+["dark", "light", "violet"]

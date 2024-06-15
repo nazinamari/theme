@@ -6,6 +6,7 @@ import Theme from '../Theme/Theme';
 import { useEffect } from 'react';
 import { selectUser } from '../../reduxTheme/authRedux/selectors';
 import { updateUserTheme } from '../../reduxTheme/authRedux/operations';
+import { setCurrentTheme } from '../../reduxTheme/authRedux/authSlice';
 
 export default function ThemeSwitcher() {
 	const dispatch = useDispatch();
@@ -15,12 +16,13 @@ export default function ThemeSwitcher() {
 
 	useEffect(() => {
 		if (currentTheme) {
-			document.body.classList.remove(...themes.map((theme) => theme.theme));
-			document.body.classList.add(currentTheme.theme);
+			document.body.classList.remove(...themes);
+			document.body.classList.add(currentTheme);
 		}
 	}, [currentTheme, themes]);
 
 	const handleThemeChange = (theme) => {
+		dispatch(setCurrentTheme(theme));
 		dispatch(updateUserTheme(theme));
 	};
 
