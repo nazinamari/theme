@@ -1,1 +1,23 @@
-["dark", "light", "violet"]
+[
+	{
+		"theme": "dark",
+		"colors": {
+			"main-text-color": "#ffffff",
+			"accent-color": "#bedbb0"
+		}
+	},
+	{
+		"theme": "light",
+		"colors": {
+			"main-text-color": "#161616",
+			"accent-color": "#bedbb0"
+		}
+	},
+	{
+		"theme": "violet",
+		"colors": {
+			"main-text-color": "#ffffff",
+			"accent-color": "#5255bc"
+		}
+	}
+]

@@ -14,7 +14,7 @@ export const updateTheme = createAsyncThunk(
 	async ({ theme }, thunkAPI) => {
 		try {
 			const response = await instance.patch(`/theme`, theme);
-			return response.data.theme;
+			return response.data;
 		} catch (error) {
 			return thunkAPI.rejectWithValue(error.message);
 		}
