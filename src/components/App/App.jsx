@@ -1,5 +1,5 @@
-import Header from '../Header/Header';
+import Header from "../Header/Header";
 
 export default function App() {
-	return <Header />;
+  return <Header />;
 }
