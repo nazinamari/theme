@@ -5,7 +5,7 @@ export const instance = axios.create({
 	baseURL: 'https://taskpro-api-nmqb.onrender.com/',
 });
 
-const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjRjYzY5Yjk2MmIxMGI3NjA3Y2VhZiIsImlhdCI6MTcxODM3MDM1MCwiZXhwIjoxNzE4NDEzNTUwfQ.a-vuU9Naabjoc1uyFvUYJ7SJ2LPRG9NVm8ve24jn-k0`;
+const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjRjYzY5Yjk2MmIxMGI3NjA3Y2VhZiIsImlhdCI6MTcxODQzOTAzNSwiZXhwIjoxNzE4NDgyMjM1fQ.nFFH2dc1D7Nitcxhlg1bwCmb0O3oXp0L4yOF3FcyKCQ`;
 
 instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
