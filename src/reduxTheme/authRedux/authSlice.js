@@ -15,11 +15,6 @@ const authSlice = createSlice({
 		isRefreshing: false,
 		isLoading: false,
 	},
-	reducers: {
-		// setTheme: (state, action) => {
-		// 	state.theme = action.payload;
-		// },
-	},
 	extraReducers: (builder) =>
 		builder
 			.addCase(refreshUser.pending, (state) => {
