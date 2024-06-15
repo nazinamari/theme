@@ -6,7 +6,7 @@ export const instance = axios.create({
 });
 
 // const token =
-// 	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2Njg2Mzk5OGI5MGNkZTFhZTE3MDdmYyIsImlhdCI6MTcxODI5NzYwNywiZXhwIjoxNzE4MzQwODA3fQ.JAkjFKPn1HXBNPFlIILveNkTT1Xe_TSXROIOJ1SIieI';
+// 	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjRjYzY5Yjk2MmIxMGI3NjA3Y2VhZiIsImlhdCI6MTcxODQzOTAzNSwiZXhwIjoxNzE4NDgyMjM1fQ.nFFH2dc1D7Nitcxhlg1bwCmb0O3oXp0L4yOF3FcyKCQ';
 
 const setAuthHeader = (token) => {
 	instance.defaults.headers.common[
@@ -15,9 +15,6 @@ const setAuthHeader = (token) => {
 };
 
 setAuthHeader();
-// const setAuthHeader = (token) => {
-//   instance.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-// };
 
 export const refreshUser = createAsyncThunk(
 	'auth/refreshUser',
