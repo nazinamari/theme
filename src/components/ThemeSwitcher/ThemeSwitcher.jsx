@@ -7,12 +7,14 @@ import { useEffect } from 'react';
 import { selectUser } from '../../reduxTheme/authRedux/selectors';
 import { updateUserTheme } from '../../reduxTheme/authRedux/operations';
 import { setCurrentTheme } from '../../reduxTheme/authRedux/authSlice';
+import data from './data/theme.json';
 
 export default function ThemeSwitcher() {
 	const dispatch = useDispatch();
-	const themes = useSelector(selectThemes);
+	// const themes = useSelector(selectThemes);
 	const user = useSelector(selectUser);
 	const currentTheme = user.theme;
+	const themes = [...data];
 
 	useEffect(() => {
 		if (currentTheme) {
@@ -29,7 +31,7 @@ export default function ThemeSwitcher() {
 	return (
 		<List className={css.listContainer}>
 			{themes.map((item) => (
-				<li key={item.theme} onClick={() => handleThemeChange(item)}>
+				<li key={item} onClick={() => handleThemeChange(item)}>
 					<Theme data={item} />
 				</li>
 			))}
